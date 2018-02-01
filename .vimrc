@@ -348,3 +348,6 @@ nnoremap <Leader>s :SortImport<Enter>
 " Vim settings
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" vim-prettier
+let g:prettier#exec_cmd_async = 1
