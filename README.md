@@ -1,6 +1,11 @@
 my dotfiles
 =
 
+## Start
+```bash
+make
+```
+
 ## Tasks
 - [ ] Create a folder for each block
 - [ ] After install vim plugin build some plugins(YCM and etc)
