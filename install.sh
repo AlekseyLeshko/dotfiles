@@ -15,6 +15,6 @@ cd ~/.vim/bundle/YouCompleteMe
 cd $basePath
 
 echo "Install global npm packages"
-yarn global add eslint eslint_d pm2 instant-markdown-d react-native-cli lock-cli alfred-lock
+yarn global add eslint eslint_d pm2 instant-markdown-d react-native-cli lock-cli alfred-lock yeoman-generator generator-generator
 
 echo "Finish install"
