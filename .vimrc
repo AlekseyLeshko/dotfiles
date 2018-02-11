@@ -353,6 +353,9 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " vim-prettier
 let g:prettier#exec_cmd_async = 1
 
+" indentline
+let g:indentLine_char = '¦'
+
 " incsearch
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
