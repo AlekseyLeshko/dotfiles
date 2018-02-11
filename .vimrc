@@ -23,6 +23,7 @@ Plugin 'easymotion/vim-easymotion'
 
 " search
 Plugin 'mileszs/ack.vim'
+Plugin 'haya14busa/incsearch.vim'
 
 " themes
 " Plugin 'altercation/vim-colors-solarized'
@@ -351,3 +352,17 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " vim-prettier
 let g:prettier#exec_cmd_async = 1
+
+" incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
