@@ -8,15 +8,15 @@ make
 
 ## Tasks
 - [ ] Vim
-  - [ ] Create folder for vim
-  - [ ] Copy vimrc to user home directory
+  - [x] Create folder for vim
+  - [x] Copy vimrc to user home directory
   - [ ] Split vimrc to core file and plugin setting files
   - [ ] Install vim plugin via terminal
   - [ ] After install vim plugin build some plugins
-    - [ ] YCM
+    - [x] YCM
   - [ ] Install npm modules for vim plugins
-    - [ ] eslint
-    - [ ] instant-markdown-d
+    - [x] eslint
+    - [x] instant-markdown-d
   - [ ] Add snippets
 
 - [ ] Install brew, nvm, node, npm, yarn, rvm
