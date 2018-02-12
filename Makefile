@@ -3,3 +3,6 @@ DEFAULT_TARGET: install
 
 install:
 	sh install.sh
+
+add_permissions:
+	chmod u+x install.sh
