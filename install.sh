@@ -9,6 +9,10 @@ echo "Vim"
 echo "Copy vimrc"
 cp vim/.vimrc ~/
 
+echo "Git"
+cp git/.gitconfig ~/
+cp git/.gitexcludes ~/
+
 echo "Start install"
 
 echo "Install brew"
