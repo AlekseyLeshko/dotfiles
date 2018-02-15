@@ -148,8 +148,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'eslint_d'
-" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-" let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
 cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
