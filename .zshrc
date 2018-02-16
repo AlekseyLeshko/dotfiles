@@ -13,6 +13,7 @@ plugins=(git zsh-syntax-highlighting ruby rails bower brew history node npm nvm 
 source $ZSH/oh-my-zsh.sh
 
 # aliases
+alias gd="git difftool"
 alias npmls="npm ls --depth=0"
 alias npmgls="npm ls -g --depth=0"
 
