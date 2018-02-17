@@ -13,6 +13,9 @@ echo "Git"
 cp git/.gitconfig ~/
 cp git/.gitexcludes ~/
 
+echo "Oh-my-zsh"
+cp zsh/.zshrc ~/
+
 echo "Start install"
 
 echo "Install brew"
