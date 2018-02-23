@@ -9,6 +9,8 @@ echo "Vim"
 echo "Copy vimrc"
 cp vim/.vimrc ~/
 
+vim +PluginInstall +qall > /dev/null &
+
 echo "Git"
 cp git/.gitconfig ~/
 cp git/.gitexcludes ~/
