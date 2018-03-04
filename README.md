@@ -17,7 +17,8 @@ make
   - [ ] Install npm modules for vim plugins
     - [x] eslint
     - [x] instant-markdown-d
-  - [ ] Add snippets
+  - [x] Add snippets
+    - [ ] update snippets or es6-7
 
 - [ ] Install brew, nvm, node, npm, yarn, rvm
 - [ ] Select the installation method: makefile, ansible or analogue

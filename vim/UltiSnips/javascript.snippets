@@ -1,0 +1,50 @@
+global !p
+from javascript_snippets import (
+	semi, space_before_function_paren, keyword_spacing
+)
+endglobal
+
+snippet afcm "arrow function class member"
+${1:function_name} = (${2:argument}) => {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fcm "function class member"
+${1:function_name}(${2:argument}) => {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet exrc "Extends React.Component" b
+import React from 'react';
+import PropTypes from 'prop-types';
+import className from 'classNames/bind';
+import styles from './.css';
+
+const cx = className.bind(styles);
+
+export default class ${1:ClassName} extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+		};
+	}
+
+	render() {
+		return (
+			<div>
+				$2
+			</div>
+		);
+	}
+}
+
+$1.propTypes = {
+};
+
+endsnippet
+
+# vim:ft=snippets:
+
