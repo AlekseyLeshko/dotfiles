@@ -23,6 +23,8 @@ echo "Start install"
 echo "Install brew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew install the_silver_searcher
+
 echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
