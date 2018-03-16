@@ -1,4 +1,3 @@
-let g:onedark_termcolors = 16
 set nocompatible
 filetype off
 
@@ -116,25 +115,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
-syntax enable
-" Vim-colors-solarized
-" set background=light
-" colorscheme solarized
-
-" spacegray
-" colorscheme spacegray
-" let g:spacegray_underline_search = 1
-
-" colors zenburn
-" syntax on
-colorscheme onedark
-" colorscheme nord
-" colorscheme gruvbox
-" set background=dark
-" let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-" colorscheme hybrid
-
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -159,25 +139,13 @@ let g:tern_map_keys=1
 " show argument hints
 let g:tern_show_argument_hints='on_hold'
 
-" Vim settings
-set t_Co=256
-syntax on
-set nu
-set encoding=utf8
-
-set nobackup
-set noswapfile
-
-" Autoindent with two spaces, always expand tabs
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-
 " CtrlP
+let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 let g:ctrlp_custom_ignore = {
   \ 'dir': 'node_modules'
   \ }
@@ -231,14 +199,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " nerdcommenter
 let g:NERDSpaceDelims = 1
 
-
+" TODO: check default hotkey
 " vim-easymotion
-" <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-" nmap s <Plug>(easymotion-overwin-f2)
 
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
@@ -247,8 +211,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-
 
 " tagbar
 " nmap <F8> :TagbarToggle<CR>
@@ -261,41 +223,12 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
   " \ ]
 " \ }
 
-" Tabs
-nmap <C-t> a<C-t><Esc>
-nmap <C-d> a<C-d><Esc>
-vmap <C-t> :><CR>gv
-vmap <C-d> :<<CR>gv
-
-" Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Splits
-set splitbelow
-set splitright
-
-
-" folding
-if has('folding')
-  if has('windows')
-    let &fillchars='vert: '
-  endif
-  set foldmethod=indent
-  set foldlevelstart=99
-endif
-
 " autmformat
 " noremap <c-f> :Autoformat<CR>
-
-set ts=2 sw=2 et
 
 "vim-bable
 map  <Leader>js :Babel vert<Enter>
 nmap <Leader>js :Babel vert<Enter>
-
 
 " JSON
 " au! BufRead,BufNewFile *.json set filetype=json
@@ -326,9 +259,6 @@ vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 " in insert mode, ctrl-c add spliting line 
 imap <C-c> <CR><Esc>O
 
-" let g:ackprg = "ag --vimgrep"
-" let g:ackprg = 'ag --nogroup --nocolor --column'
-
 " ack.vim
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -338,16 +268,8 @@ nnoremap <Leader>a :Ack!<Space>
 noremap <Leader>aw :Ack! <cword><cr>
 nnoremap <Leader>ab :Ack!  %<Left><Left>
 
-set tw=78
-set fo=cq
-set colorcolumn=80
-
 " vim-sort-imports
 nnoremap <Leader>s :SortImport<Enter>
-
-" Vim settings
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " vim-prettier
 let g:prettier#exec_cmd_async = 1
@@ -368,3 +290,105 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+" vim setting
+syntax enable
+
+" spaces & tabs
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" ui config
+set nu
+" TODO: need test
+" set wildmenu
+" set cursorline
+set lazyredraw
+set showmatch
+
+set t_Co=256
+set encoding=utf8
+
+set nobackup
+set noswapfile
+
+set paste
+set ts=2 sw=2 et
+set tw=78
+set fo=cq
+set colorcolumn=80
+
+" colorscheme
+" set background=light
+" colorscheme solarized
+
+" spacegray
+" colorscheme spacegray
+" let g:spacegray_underline_search = 1
+
+" colors zenburn
+" syntax on
+colorscheme onedark
+" let g:onedark_termcolors = 16
+" colorscheme nord
+" colorscheme gruvbox
+" set background=dark
+" let g:hybrid_custom_term_colors = 1
+" colorscheme hybrid
+
+" split size
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Tabs
+nmap <C-t> a<C-t><Esc>
+nmap <C-d> a<C-d><Esc>
+vmap <C-t> :><CR>gv
+vmap <C-d> :<<CR>gv
+
+" Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Splits
+set splitbelow
+set splitright
+
+" folding
+if has('folding')
+  if has('windows')
+    let &fillchars='vert: '
+  endif
+  set foldmethod=indent
+  set foldlevelstart=99
+endif
+
+" movement
+" nnoremap j gj
+" nnoremap k gk
+nnoremap gV `[v`]
+
+" leader shortcuts
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>ss :mksession<CR>
+
+"may be
+" move to beginning/end of line
+" nnoremap B ^
+" nnoremap E $
+
+" $/^ doesn't do anything
+" nnoremap $ <nop>
+" nnoremap ^ <nop>
+
+" buckups
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
