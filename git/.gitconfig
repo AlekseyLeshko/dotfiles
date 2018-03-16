@@ -5,7 +5,7 @@
 	name = AlekseyLeshko
 [core]
 	editor = /usr/local/bin/vim
-	excludesfile = /Users/aleshko/.gitexcludes
+	excludesfile = ~/.gitexcludes
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
@@ -19,3 +19,5 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+[commit]
+	template = ~/.gitmessage
