@@ -14,6 +14,7 @@ vim +PluginInstall +qall > /dev/null &
 echo "Git"
 cp git/.gitconfig ~/
 cp git/.gitexcludes ~/
+cp git/.gitmessage ~/
 
 echo "Oh-my-zsh"
 cp zsh/.zshrc ~/
