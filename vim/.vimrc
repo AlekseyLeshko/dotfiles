@@ -62,9 +62,9 @@ Plugin 'mhinz/vim-signify'
 Plugin 'mattn/emmet-vim'
 
 " Snippets
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'justinj/vim-react-snippets'
+ Plugin 'sirver/ultisnips'
+ Plugin 'honza/vim-snippets'
+ Plugin 'justinj/vim-react-snippets'
 
 " JS highlighting
 Plugin 'pangloss/vim-javascript'
@@ -133,6 +133,18 @@ let g:syntastic_javascript_eslint_exe = 'eslint_d'
 nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
 cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
 
+" youcompliteme
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>']
+
+" vim-snippets
+set runtimepath+=~/.vim/UltiSnips/
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " Tern
 " enable keyboard shortcuts
 let g:tern_map_keys=1
@@ -147,59 +159,17 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 let g:ctrlp_custom_ignore = {
-  \ 'dir': 'node_modules'
-  \ }
+ \ 'dir': 'node_modules'
+ \ }
 
 " Emmet
-" let g:user_emmet_mode='a'
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css EmmetInstall
-"
-"
-
-" JsBeatifify
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" autocmd FileType *css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
-
-" vim-snippets
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
-" let g:SuperTabDefaultCompletionType    = '<C-n>'
-" let g:SuperTabCrMapping                = 0
-" let g:UltiSnipsExpandTrigger           = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-
-" make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = '<C-n>'
-" let g:ycm_key_list_previous_completion = '<C-p>'
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-
-
-set runtimepath+=~/.vim/UltiSnips/
-" let g:UltiSnipsSnippetsDir='~/.vim/'
-" let g:UltiSnipsSnippetDirectories=["snippets"]
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " nerdcommenter
-let g:NERDSpaceDelims = 1
+ let g:NERDSpaceDelims = 1
 
-" TODO: check default hotkey
 " vim-easymotion
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -212,49 +182,11 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" tagbar
-" nmap <F8> :TagbarToggle<CR>
-" let g:tagbar_type_css = {
-  " \ 'ctagtype' : 'Css',
-  " \ 'kinds'     : [
-    " \ 'c:classes',
-    " \ 's:selectors',
-    " \ 'i:identities'
-  " \ ]
-" \ }
-
-" autmformat
-" noremap <c-f> :Autoformat<CR>
-
-"vim-bable
-map  <Leader>js :Babel vert<Enter>
-nmap <Leader>js :Babel vert<Enter>
-
 " JSON
-" au! BufRead,BufNewFile *.json set filetype=json
-let g:vim_json_syntax_conceal = 1
-let g:vim_json_warnings = 1
-setlocal conceallevel=1
-
-augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-  autocmd FileType json set foldmethod=syntax
-augroup END
+let g:vim_json_syntax_conceal = 0
 
 " vim-jsx
 let g:jsx_ext_required = 0
-
-" vim serach
-vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
-
-" youcompliteme
-" imap <C-J> <Plug>snipMateNextOrTrigger
-" smap <C-J> <Plug>snipMateNextOrTrigger
 
 " in insert mode, ctrl-c add spliting line 
 imap <C-c> <CR><Esc>O
@@ -282,6 +214,9 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
+" vim search
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
+
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
@@ -303,7 +238,6 @@ set expandtab
 set nu
 " TODO: need test
 " set wildmenu
-" set cursorline
 set lazyredraw
 set showmatch
 
@@ -313,10 +247,9 @@ set encoding=utf8
 set nobackup
 set noswapfile
 
-set paste
 set ts=2 sw=2 et
-set tw=78
 set fo=cq
+set tw=78
 set colorcolumn=80
 
 " colorscheme
@@ -347,48 +280,32 @@ nmap <C-d> a<C-d><Esc>
 vmap <C-t> :><CR>gv
 vmap <C-d> :<<CR>gv
 
+" Splits
+set splitbelow
+set splitright
+
 " Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Splits
-set splitbelow
-set splitright
-
 " folding
 if has('folding')
-  if has('windows')
-    let &fillchars='vert: '
-  endif
-  set foldmethod=indent
-  set foldlevelstart=99
+	if has('windows')
+		let &fillchars='vert: '
+	endif
+	set foldmethod=indent
+	set foldlevelstart=99
 endif
 
 " movement
-" nnoremap j gj
-" nnoremap k gk
-nnoremap gV `[v`]
+nnoremap j gj
+nnoremap k gk
+" nnoremap gV `[v`]
 
 " leader shortcuts
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>ss :mksession<CR>
-
-"may be
-" move to beginning/end of line
-" nnoremap B ^
-" nnoremap E $
-
-" $/^ doesn't do anything
-" nnoremap $ <nop>
-" nnoremap ^ <nop>
-
-" buckups
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
+" nnoremap <leader>ss :mksession<CR>
