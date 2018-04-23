@@ -300,8 +300,8 @@ if has('folding')
 endif
 
 " movement
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 " nnoremap gV `[v`]
 
 " leader shortcuts
