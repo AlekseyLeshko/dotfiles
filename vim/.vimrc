@@ -23,6 +23,8 @@ Plugin 'easymotion/vim-easymotion'
 " search
 Plugin 'mileszs/ack.vim'
 Plugin 'haya14busa/incsearch.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 " themes
 " Plugin 'altercation/vim-colors-solarized'
@@ -44,11 +46,16 @@ Plugin 'raimondi/delimitmate'
 " tab
 Plugin 'ervandew/supertab'
 
+" mdx
+Plugin 'findango/vim-mdx'
+
 " JS
-Plugin 'mitermayer/vim-prettier', { 'do': 'yarn install' }
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plugin 'wendyyuchensun/import-cost-vim'
 " Plugin 'w0rp/ale'
 " Plugin 'maksimr/vim-jsbeautify'
 " Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ruanyl/coverage.vim'
 
 " Comments
 Plugin 'scrooloose/nerdcommenter'
@@ -204,7 +211,18 @@ nnoremap <Leader>ab :Ack!  %<Left><Left>
 nnoremap <Leader>s :SortImport<Enter>
 
 " vim-prettier
-let g:prettier#exec_cmd_async = 1
+" autocmd FileType javascript set formatprg=prettier\ --stdin
+" let g:prettier#config#config_precedence = 'file-override'
+" autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+" nnoremap <Leader>p :Prettier#run(1)
+
+" let g:prettier#exec_cmd_async = 1
+" autocmd BufWritePost *.js,*.jsx call prettier#run(1)
+" let g:prettier#config#config_precedence = 'prettier-eslint'
+
+" ruanyl/coverage.vim
+let g:coverage_json_report_path = 'coverage/coverage-final.json'
+let g:coverage_show_uncovered = 1
 
 " indentline
 let g:indentLine_char = '¦'
@@ -228,6 +246,7 @@ map g# <Plug>(incsearch-nohl-g#)
 
 " vim setting
 syntax enable
+" set paste
 
 " spaces & tabs
 set tabstop=2
@@ -252,7 +271,21 @@ set fo=cq
 set tw=78
 set colorcolumn=80
 
+filetype plugin indent on
+syntax on
+
+set term=builtin_beos-ansi
+
+" set term=builtin_ansi
+" set term=xterm-256color
+
 " colorscheme
+" syntax on
+" syntax enable
+" set background=dark
+" colorscheme solarized
+" let g:solarized_termcolors=256
+
 " set background=light
 " colorscheme solarized
 
@@ -261,9 +294,8 @@ set colorcolumn=80
 " let g:spacegray_underline_search = 1
 
 " colors zenburn
-" syntax on
 colorscheme onedark
-" let g:onedark_termcolors = 16
+" let g:onedark_termcolors=16
 " colorscheme nord
 " colorscheme gruvbox
 " set background=dark
@@ -309,3 +341,13 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 " nnoremap <leader>ss :mksession<CR>
+
+" search
+set ignorecase
+set smartcase
+
+" fzf
+" set rtp+=/usr/local/opt/fzf
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
