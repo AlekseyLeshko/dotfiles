@@ -33,6 +33,9 @@ brew install the_silver_searcher
 echo "Install fuzzy finder"
 brew install fzf
 
+echo "Install yarn"
+brew install yarn
+
 echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
