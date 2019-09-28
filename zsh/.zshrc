@@ -1,5 +1,5 @@
 export LC_ALL=en_US.UTF-8
-export ZSH=/Users/aleshko/.oh-my-zsh
+export ZSH=/Users/alekseyleshko/.oh-my-zsh
 
 # Look in ~/.oh-my-zsh/themes/
 #s≈ZSH_THEME="robbyrussell"
@@ -23,9 +23,9 @@ alias yui="yarn upgrade-interactive --latest"
 alias yls="yarn list --depth=0"
 alias ygls="yarn global list --depth=0"
 
-DEFAULT_USER="aleshko"
+DEFAULT_USER="alekseyleshko"
 
-export NVM_DIR="/Users/aleshko/.nvm"
+export NVM_DIR="/Users/alekseyleshko/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="/usr/local/sbin:$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
