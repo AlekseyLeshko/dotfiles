@@ -16,7 +16,10 @@ cp git/.gitconfig ~/
 cp git/.gitexcludes ~/
 cp git/.gitmessage ~/
 
-echo "Oh-my-zsh"
+echo "Install oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "Set Oh-my-zsh config"
 cp zsh/.zshrc ~/
 
 echo "Start install"
