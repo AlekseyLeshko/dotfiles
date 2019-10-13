@@ -21,3 +21,5 @@
 	prompt = false
 [commit]
 	template = ~/.gitmessage
+[pager]
+	branch = false
