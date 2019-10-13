@@ -36,6 +36,9 @@ brew install fzf
 echo "Install yarn"
 brew install yarn
 
+echo "Install neovim"
+brew install neovim
+
 echo "Install rvm"
 \curl -sSL https://get.rvm.io | bash -s stable
 
