@@ -36,6 +36,13 @@ brew install fzf
 echo "Install yarn"
 brew install yarn
 
+echo "Install rvm"
+\curl -sSL https://get.rvm.io | bash -s stable
+
+echo "Install ruby"
+rvm install 2.6.5
+rvm --default 2.6.5
+
 echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
