@@ -64,6 +64,12 @@ echo "Install YCM"
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --js-completer
 
+echo "Install aws cli"
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+rm -rf awscli-bundle awscli-bundle.zip
+
 cd $basePath
 
 echo "Install global npm packages"
