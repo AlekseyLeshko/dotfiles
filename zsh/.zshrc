@@ -1,13 +1,16 @@
-export LC_ALL=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 export ZSH=/Users/alekseyleshko/.oh-my-zsh
 
 # Look in ~/.oh-my-zsh/themes/
+ZSH_THEME="powerlevel10k/powerlevel10k"
 #s≈ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 # ZSH_THEME="hyperzsh"
 
+POWERLEVEL9K_MODE="awesome-patched"
+
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git zsh-syntax-highlighting ruby rails bower brew history node npm nvm sudo web-search yarn)
+plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting ruby nvm bower brew history node npm nvm sudo web-search yarn)
 
 # User configuration
 
@@ -22,6 +25,9 @@ alias yout="yarn outdated"
 alias yui="yarn upgrade-interactive --latest"
 alias yls="yarn list --depth=0"
 alias ygls="yarn global list --depth=0"
+
+alias ll="colorls -l --sd"
+alias ls="colorls"
 
 DEFAULT_USER="alekseyleshko"
 
@@ -56,3 +62,19 @@ load-nvmrc
 export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# zsh-completions
+autoload -U compinit && compinit
+
+# colors
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+  source $HOME/.rvm/scripts/rvm;
+fi
