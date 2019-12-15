@@ -22,7 +22,6 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " search
-Plugin 'mileszs/ack.vim'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
@@ -39,6 +38,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'yggdroot/indentline'
 Plugin 'tpope/vim-surround'
 Plugin 'raimondi/delimitmate'
+Plugin 'christoomey/vim-sort-motion'
 
 " Comments
 Plugin 'scrooloose/nerdcommenter'
@@ -57,6 +57,10 @@ Plugin 'justinj/vim-react-snippets'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'peitalin/vim-jsx-typescript'
+" Plugin 'Shougo/vimproc.vim'
 
 " ES6
 Plugin 'jbgutierrez/vim-babel'
@@ -86,15 +90,6 @@ nmap <Leader>w <Plug>(easymotion-bd-w)
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
-" ack.vim
-if executable('ag')
- let g:ackprg = 'ag --vimgrep'
-endif
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
-noremap <Leader>aw :Ack! <cword><cr>
-nnoremap <Leader>ab :Ack!  %<Left><Left>
-
 " incsearch
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -112,10 +107,11 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 " fzf
-map <C-p> :Files<CR>
+nnoremap <Leader>a :Ag<Space>
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
- \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+ \ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'cat {}']}, <bang>0)
+map <C-p> :Files<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
@@ -145,9 +141,28 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol = "☠"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "☢"
+let g:syntastic_style_warning_symbol = "☹"
+
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'eslint_d'
+
+
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_typescript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['eslint', 'tsuquyomi']
+let g:syntastic_typescript_eslint_exe = 'eslint_d'
 " let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+
+" eslint_d
+" Autofix entire buffer with eslint_d:
+nnoremap <leader>ef mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
+" Autofix visual selection with eslint_d:
+vnoremap <leader>ef :!eslint_d --stdin --fix-to-stdout<CR>gv
+
 
 nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
 cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
@@ -163,6 +178,12 @@ set runtimepath+=~/.vim/UltiSnips/
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" typescript-vim
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
+" let g:typescript_indent_disable = 0
+" autocmd FileType typescript :set makeprg=tsc
 
 " JSON
 let g:vim_json_syntax_conceal = 0
@@ -249,6 +270,7 @@ if has('folding')
  set foldmethod=indent
  set foldlevelstart=99
 endif
+
 
 " leader shortcuts
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
