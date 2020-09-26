@@ -1,7 +1,7 @@
 # export LC_ALL=en_US.UTF-8
 export ZSH=/Users/alekseyleshko/.oh-my-zsh
 
-# Look in ~/.oh-my-zsh/themes/
+# Look in ~/.oh-my-zsh/custom/themes/
 ZSH_THEME="powerlevel10k/powerlevel10k"
 #s≈ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
