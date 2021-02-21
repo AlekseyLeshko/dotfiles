@@ -1,6 +1,19 @@
 my dotfiles
 =
 
+
+## Get started
+- [Brew](https://brew.sh/)
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- [nvm](https://github.com/nvm-sh/nvm)
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+```
+
+
 ## Start
 ```bash
 make
