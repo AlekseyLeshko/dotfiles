@@ -29,9 +29,6 @@ cp zsh/.zshrc ~/
 
 echo "Start install"
 
-echo "Install brew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 echo "Install silver searcher"
 brew install the_silver_searcher
 
@@ -43,26 +40,6 @@ brew install yarn
 
 echo "Install neovim"
 brew install neovim
-
-echo "Install rvm"
-\curl -sSL https://get.rvm.io | bash -s stable
-
-echo "Install ruby"
-rvm install 2.6.5
-rvm --default 2.6.5
-
-echo "Install colorls"
-gem install colorls
-
-echo "Install nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-
-echo "Install nodejs"
-nvm install v10.10.0
-
-echo "Install YCM"
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --js-completer
 
 echo "Install aws cli"
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"

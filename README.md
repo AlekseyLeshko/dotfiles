@@ -3,6 +3,8 @@ my dotfiles
 
 
 ## Get started
+- [iTerm2](https://iterm2.com/)
+
 - [Brew](https://brew.sh/)
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -11,28 +13,19 @@ my dotfiles
 - [nvm](https://github.com/nvm-sh/nvm)
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+- [rvm](https://rvm.io/)
+```
+\curl -sSL https://get.rvm.io | bash -s stable
 ```
 
-
-## Start
-```bash
-make
+- [ruby](https://www.ruby-lang.org/en/)
+```
+rvm install 2.6.5
+rvm --default 2.6.5
 ```
 
-## Tasks
-- [ ] Vim
-  - [x] Create folder for vim
-  - [x] Copy vimrc to user home directory
-  - [ ] Split vimrc to core file and plugin setting files
-  - [x] Install vim plugin via terminal
-  - [ ] After install vim plugin build some plugins
-    - [x] YCM
-  - [ ] Install npm modules for vim plugins
-    - [x] eslint
-    - [x] instant-markdown-d
-  - [x] Add snippets
-    - [ ] update snippets or es6-7
-
-- [ ] Install brew, nvm, node, npm, yarn, rvm
-- [ ] Select the installation method: makefile, ansible or analogue
-- [ ] Install vim plugins from terminal
+- [colorls](https://github.com/athityakumar/colorls)
+```
+gem install colorls
+```
