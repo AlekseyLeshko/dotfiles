@@ -3,6 +3,12 @@ my dotfiles
 
 
 ## Get started
+- [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
+```
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+```
+
 - [iTerm2](https://iterm2.com/)
 
 - [Brew](https://brew.sh/)
