@@ -1,0 +1,6 @@
+#Version2.0
+Singapore|Singapore|Asia/Singapore|SG||1
+UTC|United Kingdom|UTC|UTC||O
+London|United Kingdom|Europe/London|GB|44|1
+Moscow|Russia|Europe/Moscow|RU||1
+Ulyanovsk|Russia|Europe/Ulyanovsk|RU||1
