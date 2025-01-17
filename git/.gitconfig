@@ -3,23 +3,31 @@
 [user]
 	email = alekseyleshko@gmail.com
 	name = AlekseyLeshko
+	signingkey = 2B1307C809C0EFB6
 [core]
-	editor = /usr/local/bin/vim
+	editor = vim
 	excludesfile = ~/.gitexcludes
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
 [diff]
-	tool = vimdiff
+#	tool = vimdiff
 [difftool]
 	prompt = false
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+#	tool = vimdiff
+        conflictstyle = diff3
 [mergetool]
 	prompt = false
 [commit]
 	template = ~/.gitmessage
+	gpgsign = true
 [pager]
 	branch = false
+[gpg]
+	program = gpg
+[includeIf "gitdir:~/projects/X/"]
+    path = .gitconfig-X
+[init]
+	defaultBranch = main
